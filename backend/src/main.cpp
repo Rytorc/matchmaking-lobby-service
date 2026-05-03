@@ -9,7 +9,7 @@ struct CorsMiddleware
     {
     };
 
-    void before_middleware(crow::request& request, crow::response& response, context&)
+    void before_handle(crow::request& request, crow::response& response, context&)
     {
         if(request.method == crow::HTTPMethod::OPTIONS)
         {
@@ -33,7 +33,7 @@ int main()
 {
     AppConfig config = AppConfig::Load();
 
-    crow::SimpleApp app;
+    crow::App<CorsMiddleware> app;
 
     CROW_ROUTE(app, "/api/health")
     .methods(crow::HTTPMethod::GET)

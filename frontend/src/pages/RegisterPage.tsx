@@ -53,6 +53,7 @@ export function RegisterPage() {
                         </label>
                         <input
                             className="w-full rounded border px-3 py-2"
+                            type="password"
                             value={password}
                             onChange={(event) => setPassword(event.target.value)}
                             required
@@ -61,7 +62,7 @@ export function RegisterPage() {
 
                     <button
                         type="submit"
-                        className="w-full rounded bg-gray-900 ps-4 py-2 text-white"
+                        className="w-full rounded bg-gray-900 px-4 py-2 text-white"
                     >
                         Create Account
                     </button>
@@ -70,6 +71,7 @@ export function RegisterPage() {
                 <p className="mt-4 text-sm text-gray-600">
                     Already have an account?{" "}
                     <Link className="font-medium underline" to="/login">
+                        Login
                     </Link>
                 </p>
             </div>
