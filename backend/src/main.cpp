@@ -3,6 +3,32 @@
 #include "config/AppConfig.hpp"
 #include "utils/HttpResponse.hpp"
 
+struct CorsMiddleware
+{
+    struct context
+    {
+    };
+
+    void before_middleware(crow::request& request, crow::response& response, context&)
+    {
+        if(request.method == crow::HTTPMethod::OPTIONS)
+        {
+            response.code = 204;
+            response.set_header("Access-Control-Allow-Origin", "http://localhost:5173");
+            response.set_header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+            response.set_header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+            response.end();
+        }
+    }
+
+    void after_handle(crow::request&, crow::response& response, context&)
+    {
+        response.set_header("Access-Control-Allow-Origin", "http://localhost:5173");
+        response.set_header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+        response.set_header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    }
+};
+
 int main()
 {
     AppConfig config = AppConfig::Load();
