@@ -1,0 +1,3 @@
+/home/eryn510/Codes/matchmaking-lobby-service/backend/build/CMakeFiles/matchmaking_backend.dir
+/home/eryn510/Codes/matchmaking-lobby-service/backend/build/CMakeFiles/edit_cache.dir
+/home/eryn510/Codes/matchmaking-lobby-service/backend/build/CMakeFiles/rebuild_cache.dir
